@@ -11,6 +11,7 @@ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 1C61A2656FB57B7E4DE0F4C1FC9
 
 sudo apt update
 sudo apt install python3-gpg dropbox
+sudo
 
 dropbox start -i
 
