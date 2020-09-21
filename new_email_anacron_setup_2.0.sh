@@ -25,14 +25,18 @@ MYBASH=$HOME/.bash_aliases  ### Will this $HOME work without quotes?
 ## Download ssmtp
 sudo apt install ssmtp git -y
 # Get email address into a variable
-read -p 'Enter your email address: ' email_address
+read -p 'Enter your email address [jeffmayle75@gmail.com]: ' email_address
+email_address=${email_address:-jeffmayle75@gmail.com}
 stty -echo
 printf "Enter your email password (it will not be displayed): "
 read password
 stty echo
 printf "\n"
-read -p 'Enter your email username (generally name before the @):' email_username
-#echo '(Ignore the two error lines below)'
+read -p 'Enter your email username (generally name before the @) [jeffmayle75]:' email_username
+email_username=${email_username:-jeffmayle75}
+##echo '(Ignore the two error lines below)'
+
+grep -o “[[:alnum:][:graph:]]*@[[:alnum:][:graph:]]*” FILE | grep -o “@[[:alnum:][:graph:]]*” | sed -e ‘s/@//g’
 
 export HOSTNAME
 my_hostname="$( hostname )"
@@ -90,8 +94,8 @@ sudo chmod 664 $ANACRONTAB
 
 if [ -e $ANACRONTAB.backup ]
 then
-  sudo cp $ANACRONTAB.backup $ANACRONTAB.backup.backup >/dev/null
-  sudo rm $ANACRONTAB.backup >/dev/null 
+  sudo cp $ANACRONTAB.backup $ANACRONTAB.backup.backup 2>/dev/null
+  sudo rm $ANACRONTAB.backup 2>/dev/null 
 fi
 
 sudo cp $ANACRONTAB $ANACRONTAB.backup >/dev/null
