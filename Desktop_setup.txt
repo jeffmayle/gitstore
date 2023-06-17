@@ -1,0 +1,23 @@
+Re-installation of machine
+==========================
+
+Boot from pen drive
+Install Ubuntu 22.04 LTS, allow it to auto-setup partitions for the full drive
+Set up static IP address: 212.159.112.141 212.159.112.0/24
+Join home wifi with admin user jeff
+Logon to google
+Install git
+git clone https://github.com/jeffmayle/gitstore ./gitstore
+Install dropbox via installing_dropbox_20.04.sh
+new_email_anacron_setup_3.0.sh
+post_install-22.04.sh
+Install Google Chrome, torbrowser
+brave_install.sh
+install_keepassXC.sh
+append_to_anacrontab.sh
+install_gedit_restore.sh
+Thunderbird setup
+run this on master machine sudo sh email-contacts-backup_1.2.sh 
+Restore to Thunderbird from File import
+Login to Firefox
+Get Iva's account up and running
