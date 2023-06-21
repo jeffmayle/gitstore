@@ -14,10 +14,11 @@ post_install-22.04.sh
 Install Google Chrome, torbrowser
 brave_install.sh
 install_keepassXC.sh
+create_desktop_links.sh
 append_to_anacrontab.sh
 install_gedit_restore.sh
 Thunderbird setup
-run this on master machine sudo sh email-contacts-backup_1.2.sh 
+run this on master machine bash progress.sh
 Restore to Thunderbird from File import
 Login to Firefox
 Get Iva's account up and running
