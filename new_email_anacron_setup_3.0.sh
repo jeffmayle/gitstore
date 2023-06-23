@@ -76,9 +76,6 @@ EndofMSMTMPConf
 sudo chown root:msmtp ~/.msmtprc
 sudo chmod 640 ~/.msmtprc
 
-# Reinstate permissions on ssmtp.conf
-#sudo chmod 640 $SSMTPCONF
-
 #Setup aliases file
 #touch aliases
 #sudo chmod 664 aliases
@@ -93,6 +90,15 @@ echo "sudo -- sh -c 'apt update && apt upgrade -y && apt autoremove -y'" >> anac
 cp anacronupdate.sh /home/jeff/anacronupdate.sh 
 chmod +x /home/jeff/anacronupdate.sh
 
+touch chdir.sh
+sudo chmod 664 chdir.sh
+echo '#!/usr/bin/bash' > chdir.sh
+echo '# Filename: chdirs.sh' >> chdir.sh
+echo '# This file should be sourced' >> chdir.sh
+echo 'alias useful="cd ~/Dropbox/Linux-stuff/Bash-scripts/Useful/Temp"' >> chdir.sh
+cp chdir.sh /home/jeff/chdir.sh
+chmod +x /home/jeff/chdir.sh
+
 sudo chmod 664 $ANACRONTAB
 
 if [ -e $ANACRONTAB.backup ]
@@ -104,6 +110,7 @@ fi
 sudo cp $ANACRONTAB $ANACRONTAB.backup >/dev/null
 # echo y | sudo rm $ANACRONTAB  #  sudo tee -a was to append to a file, 
 				#+ without the -a to replace
+				
 sudo tee $ANACRONTAB <<EndofAnacrontab >/dev/null
 # /etc/anacrontab: configuration file for anacron
 # 
@@ -122,7 +129,6 @@ LOGNAME=root
 # Added by $USER on $now
 7	10	$USER.update		/home/$USER/anacronupdate.sh
 1	15	$USER.backup-email	/home/$USER/Dropbox/Linux-stuff/Bash-scripts/Useful/email-contacts-backup_2.0.sh
-20	25	$USER.bday_out_clear	/home/$USER/Dropbox/Linux-stuff/Bash-scripts/Useful/bday_out_clearup.sh
 1	20	$USER.birthdays		/home/$USER/Dropbox/Linux-stuff/Bash-scripts/Useful/Birthdays/bday.sh
 1	23	$USER.birthdays5	/home/$USER/Dropbox/Linux-stuff/Bash-scripts/Useful/Birthdays/bday5.sh
 EndofAnacrontab
@@ -130,31 +136,6 @@ EndofAnacrontab
 sudo chmod 644 $ANACRONTAB
 
 
-
-
-#grep -qxF '7	10	jeff.update	/home/jeff/anacronupdate.sh' $ANACRONTAB || echo '# Added by Jeff on $now' >> $ANACRONTAB && echo '5	10	jeff.update	/home/jeff/anacronupdate.sh' >> $ANACRONTAB
-
-#grep -qxF '28	25	jeff.bday_out	/home/jeff/Dropbox/Linux-stuff/Bash-scripts/Useful/bday_out_clearup.sh' /etc/anacrontab || echo '28	25	jeff.bday_out_clear	/home/jeff/Dropbox/Linux-stuff/Bash-scripts/Useful/bday_out_clearup.sh' >> /etc/anacrontab
-
-#grep -qxF '1	20	jeff.birthdays	/home/jeff/Dropbox/Linux-stuff/Bash-scripts/Useful/Birthdays/bday.sh' /etc/anacrontab || echo '1	20	jeff.birthdays	/home/jeff/Dropbox/Linux-stuff/Bash-scripts/Useful/Birthdays/bday.sh' >> /etc/anacrontab
-
-#grep -qxF '1	23	jeff.birthdays5	/home/jeff/Dropbox/Linux-stuff/Bash-scripts/Useful/Birthdays/bday5.sh' /etc/anacrontab || echo '1	23	jeff.birthdays5 /home/jeff/Dropbox/Linux-stuff/Bash-scripts/Useful/Birthdays/bday5.sh' >> /etc/anacrontab
-
-#sudo ln -s '/home/jeff/Dropbox/Languages/Learn-Czech/Do you want to speak Czech?' '/home/jeff/Desktop/Do you want to speak Czech?'
-
-#sudo ln -s '/home/jeff/Dropbox/Linux-stuff/Linux-Documentation2.odt' '/home/jeff/Desktop/Linux-Documentation2.odt'
-
-#sudo chmod 644 $ANACRONTAB
-
-## Adding alias to use just before 'apt install...' as in now runs less often
-
-#sudo tee $MYBASH <<EndofConfFile >/dev/null 
-#function apt-updater {
-#	sudo apt update# &&
-#	sudo apt upgrade -y &&
-#	sudo apt autoremove -y
-#	}
-#EndofConfFile
 
 echo ; echo ; echo ; echo System email and /etc/anacrontab setup successfully! ; echo
 
