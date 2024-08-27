@@ -11,7 +11,7 @@ git clone https://github.com/jeffmayle/gitstore ./gitstore
 Install dropbox via installing_dropbox_20.04.sh
 new_email_anacron_setup_3.0.sh
 post_install-22.04.sh
-Install Google Chrome, torbrowser
+Install Google Chrome, torbrowser install_google_chrome.sh from Useful
 brave_install.sh
 install_keepassXC.sh
 create_desktop_links.sh
