@@ -2,16 +2,16 @@ Re-installation of machine
 ==========================
 
 Boot from pen drive
-Install Ubuntu 22.04 LTS, allow it to auto-setup partitions for the full drive
+Install Ubuntu 24.04 LTS, allow it to auto-setup partitions for the full drive
 Set up static IP address: 212.159.112.141 212.159.112.0/24
 Join home wifi with admin user jeff
 Logon to google
 Install git
 git clone https://github.com/jeffmayle/gitstore ./gitstore
+Install Google Chrome, torbrowser install_google_chrome.sh and install_torbrowser.sh from Useful
 Install dropbox via installing_dropbox_20.04.sh
-new_email_anacron_setup_3.0.sh
+new_email_anacron_setup_3.1.sh
 post_install-22.04.sh
-Install Google Chrome, torbrowser install_google_chrome.sh from Useful
 brave_install.sh
 install_keepassXC.sh
 create_desktop_links.sh
