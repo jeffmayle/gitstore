@@ -15,6 +15,11 @@ ALIASES=/etc/aliases
 ## Download msmtp and setup
 sudo apt install msmtp msmtp-mta -y
 
+echo Now generate an app password e.g. msmtp@laptop
+firefox "https://myaccount.google.com/apppasswords"
+printf "Enter the password you have generated: "
+read password
+
 sudo tee $MSMTPCONF <<EndofMSMTMPConf >/dev/null
 # Set default values for all following accounts.
 defaults
@@ -36,7 +41,7 @@ host smtp.gmail.com
 from sharron.basson@googlemail.com
 auth on
 user sharron.basson
-password 
+password $password
 
 # Set default account to isp
 account default: gogglemail
