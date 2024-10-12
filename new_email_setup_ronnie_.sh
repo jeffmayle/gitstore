@@ -17,8 +17,12 @@ sudo apt install msmtp msmtp-mta -y
 
 echo Now generate an app password e.g. msmtp@laptop
 firefox "https://myaccount.google.com/apppasswords"
+
+read -n 1 -s -r -p "<<< Press any key to continue >>>"
+
 printf "Enter the password you have generated: "
 read password
+
 
 sudo tee $MSMTPCONF <<EndofMSMTMPConf >/dev/null
 # Set default values for all following accounts.
